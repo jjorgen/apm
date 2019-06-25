@@ -52,7 +52,7 @@ export class ProductsDetailComponent implements OnInit {
       'enrollmentFileInternalEmailNotificationAddress':  '',
 
       'pdfFile': 'Yes',
-      'pdfFileBeginDate': 'January 1, 2017',
+      'pdfFileBeginDate': 'March 18, 2018',
       'pdfFileEndDate': 'N/A',
 
       'transferMethod':'EB2B',
