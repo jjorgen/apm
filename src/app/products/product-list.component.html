@@ -4,16 +4,16 @@
     </div>
     <div class='card-body'>
         <div class='row'>
-            <div class='col-md-2'>Filter by:</div>
+            <div class='col-md-2'>Filter by Case Name:</div>
             <div class='col-md-4'>
                 <input type='text'
                        [(ngModel)]='listFilter' />
             </div>
         </div>
         <div class='row'>
-            <div class='col-md-6'>
+            <!-- <div class='col-md-6'>
                 <h4>Filtered by: {{listFilter}}</h4>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class='table-responsive'>
@@ -27,10 +27,10 @@
                             {{showImage ? 'Hide' : 'Show'}} Image
                         </button>
                     </th>
-                    <th>Product</th>
-                    <th>Code</th>
-                    <th>Available</th>
-                    <th>Price</th>
+                    <th>Subscriber Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
                     <th>5 Star Rating</th>
                 </tr>
             </thead>
@@ -47,7 +47,7 @@
                         <a [routerLink]="['/products', product.productId]">
                             {{ product.productName }}
                         </a> 
-                    <td>{{ product.productCode | lowercase | convertToSpaces: '-'}}</td>
+                    <td>{{ product.productCode }}</td>
                     <td>{{ product.releaseDate }}</td>
                     <td>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
                     <td><pm-star [rating]='product.starRating'
