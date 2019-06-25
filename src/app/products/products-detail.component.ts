@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./products-detail.component.css']
 })
 export class ProductsDetailComponent implements OnInit {
-  pageTitle: string = 'Product Detail';
+  pageTitle: string = 'DocuSign Configuration Detail';
   product: IProduct;
 
   constructor(private route: ActivatedRoute,
@@ -18,13 +18,46 @@ export class ProductsDetailComponent implements OnInit {
     this.pageTitle +=`: ${id}`;
     this.product = {
       'productId': id,
-      'productName': 'Leaf Rake',
+      'productName': 'Schools First',
       'productCode': 'GDN-0011',
       'releaseDate': 'March 19, 2016',
       'description': 'Leaf rake with 48 inch wooden handle.',
-      'price': 19.95,
+      'price': "19.95",
       'starRating': 3.2,
-      'imageUrl': 'https://openclipart.org/image/300px/svg_to_png/2615/Anonymous_leaf_Rake.png'
+      'imageUrl': 'https://openclipart.org/image/300px/svg_to_png/2615/Anonymous_leaf_Rake.png',
+
+      'subscriptionName': 'Schools First',
+      'subscriptionBeginDate': 'January 1, 2017',
+      'subscriptionEndDate': 'N/A',
+      'subscriptionStatus': 'Active',
+
+      'cases': 'SCHOOLSFIRST FEDERAL',
+
+      'censusFile': 'Yes',
+      'censusFileBeginDate': 'January 1, 2017',
+      'censusFileEndDate': 'N/A',
+      'censusFileCreateWhenEmpty': 'Yes',
+      'censusFileInternalEmailNotificationAddress': '',
+
+      'sraFile': 'Yes',
+      'sraFileBeginDate': 'January 1, 2017',
+      'sraFileEndDate':  'N/A',
+      'sraFileCreateWhenEmpty': 'Yes',
+      'sraFileInternalEmailNotificationAddress': '',
+
+      'enrollmentFile': 'Yes',
+      'enrollmentFileBeginDate': 'January 1, 2017',
+      'enrollmentFileEndDate': 'N/A',
+      'enrollmentFileCreateWhenEmpty': 'Yes',
+      'enrollmentFileInternalEmailNotificationAddress':  '',
+
+      'pdfFile': 'Yes',
+      'pdfFileBeginDate': 'January 1, 2017',
+      'pdfFileEndDate': 'N/A',
+
+      'transferMethod':'EB2B',
+      'transferId': '/devl/rptest1/eb2b',
+      'transferDirectory': '/transport/in/PENSIONS/KEYNOTE_OUT',
     }
   }
 

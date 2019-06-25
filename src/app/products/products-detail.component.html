@@ -4,6 +4,74 @@
     {{pageTitle + ': ' + product.productName}}
   </div>
 </div>
+<div class='card-body'>
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='row'>
+          <div class='col-md-4'>Name: <span class='font-weight-bold ml-1'>{{product.subscriptionName}}</span></div>
+          <div class='col-md-3'>Begin: <span class='font-weight-bold ml-1'>{{product.subscriptionBeginDate}}</span></div>
+          <div class='col-md-3'>End: <span class='font-weight-bold ml-1'>{{product.subscriptionEndDate}}</span></div>
+          <div class='col-md-2'>Status: <span class='font-weight-bold ml-1'>{{product.subscriptionStatus}}</span></div>
+        </div>
+        <div class='row'>
+          <div class='col-md-12'>Case(s): <span class='font-weight-bold ml-1'>{{product.cases}}</span></div>
+        </div>
+        <div class='row mt-3'>
+          <div class='col-md-12'><u>Subscription Files:</u></div>
+        </div>
+        <div class='row'>
+          <div class='col-md-2'>Census: <span class='font-weight-bold ml-1'>{{product.censusFile}}</span></div>
+          <div class='col-md-3'>Begin: <span class='font-weight-bold ml-1'>{{product.censusFileBeginDate}}</span></div>
+          <div class='col-md-3'>End: <span class='font-weight-bold ml-1'>{{product.censusFileEndDate}}</span></div>
+          <div class='col-md-4'>Internal Email: <span class='font-weight-bold ml-1'>abc@gmail.com</span></div>
+        </div>
+        <div class='row'>
+          <div class='col-md-2'>SRA: <span class='font-weight-bold ml-1'>{{product.sraFile}}</span></div>
+          <div class='col-md-3'>Begin: <span class='font-weight-bold ml-1'>{{product.sraFileBeginDate}}</span></div>
+          <div class='col-md-3'>End: <span class='font-weight-bold ml-1'>{{product.sraFileEndDate}}</span></div>
+          <div class='col-md-4'>Internal Email: <span class='font-weight-bold ml-1'>abc@gmail.com</span></div>
+        </div>
+        <div class='row'>
+          <div class='col-md-2'>Enrollment: <span class='font-weight-bold ml-1'>{{product.enrollmentFile}}</span></div>
+          <div class='col-md-3'>Begin: <span class='font-weight-bold ml-1'>{{product.enrollmentFileBeginDate}}</span></div>
+          <div class='col-md-3'>End: <span class='font-weight-bold ml-1'>{{product.enrollmentFileEndDate}}</span></div>
+          <div class='col-md-4'>Internal Email: <span class='font-weight-bold ml-1'>abc@gmail.com</span></div>
+        </div>
+        <div class='row'>
+          <div class='col-md-2'>PDF: <span class='font-weight-bold ml-1'>{{product.enrollmentFile}}</span></div>
+          <div class='col-md-3'>Begin: <span class='font-weight-bold ml-1'>{{product.enrollmentFileBeginDate}}</span></div>
+          <div class='col-md-3'>End: <span class='font-weight-bold ml-1'>{{product.enrollmentFileEndDate}}</span></div>
+          <div class='col-md-4'>Internal Email: <span class='font-weight-bold ml-1'>N/A</span></div>
+        </div>
+        <div class='row mt-3'>
+          <div class='col-md-12'><u>File Transfer:</u></div>
+        </div>
+        <div class='row'>
+          <div class='col-md-2'>Method: <span class='font-weight-bold ml-1'>{{product.transferMethod}}</span></div>
+          <div class='col-md-3'>Id: <span class='font-weight-bold ml-1'>{{product.transferId}}</span></div>
+          <div class='col-md-5'>Directory: <span class='font-weight-bold ml-1'>{{product.transferDirectory}}</span></div>
+        </div>
+      </div>
+
+      <!-- <div class='col-md-4'>
+        <img class='center-block img-responsive'
+             [style.width.px]='200'
+             [style.margin.px]='2'
+             [src]='product.imageUrl'
+             [title]='product.productName'>
+      </div> -->
+    </div>
+  </div>
+
+
+
+<!-- <div class='card-body'>
+    <div class='row'>
+        <div class='col-lg-4 col-md-6 col-sm-12'>
+
+        </div>  
+    </div>  
+</div> -->
 <div class='card-footer'>
   <button class='btn btn-outline-secondary'
           (click)='onBack()'
