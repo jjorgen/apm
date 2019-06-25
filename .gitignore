@@ -34,6 +34,10 @@ yarn-error.log
 testem.log
 /typings
 
+# VS Code Files
+.editorconfig
+.vscode/
+
 # System Files
 .DS_Store
 Thumbs.db
