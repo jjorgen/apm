@@ -7,7 +7,7 @@ import { Component } from "@angular/core";
      <a class='navbar-brand'>{{pageTitle}}</a>
      <ul class='nav nav-pills'>
        <li><a class='nav-link' [routerLink]="['/welcome']">Home</a></li>
-       <li><a class='nav-link' [routerLink]="['/products']">Product List</a></li>
+       <li><a class='nav-link' [routerLink]="['/products']">DocuSign Configuration</a></li>
      </ul>  
    </nav>  
    <div class='container'>
@@ -16,5 +16,5 @@ import { Component } from "@angular/core";
   `
 })
 export class AppComponent {
-  pageTitle: string = 'Acme Product Management';
+  pageTitle: string = '';
 }
