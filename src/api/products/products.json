@@ -5,7 +5,7 @@
     "productCode": "January 1, 2017",
     "releaseDate": "N/A",
     "description": "Leaf rake with 48-inch wooden handle.",
-    "price": 19.95,
+    "price": "Active",
     "starRating": 3.2,
     "imageUrl": "https://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
   },
@@ -15,7 +15,7 @@
     "productCode": "January 1, 2017",
     "releaseDate": "N/A",
     "description": "15 gallon capacity rolling garden cart",
-    "price": 32.99,
+    "price":  "Active",
     "starRating": 4.2,
     "imageUrl": "https://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
   },
@@ -25,7 +25,7 @@
     "productCode": "May 21, 2019",
     "releaseDate": "N/A",
     "description": "Curved claw steel hammer",
-    "price": 8.9,
+    "price": "Active",
     "starRating": 4.8,
     "imageUrl": "https://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
   },
@@ -35,7 +35,7 @@
     "productCode": "January 16, 2018",
     "releaseDate": "N/A",
     "description": "15-inch steel blade hand saw",
-    "price": 11.55,
+    "price":  "Active",
     "starRating": 3.7,
     "imageUrl": "https://openclipart.org/image/300px/svg_to_png/27070/egore911_saw.png"
   }
