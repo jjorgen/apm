@@ -1,8 +1,18 @@
 <div class='card'>
     <div class='card-header'>
-        {{pageTitle}}
+        <div class='row'>
+            <div class='col-md-9'>
+              {{pageTitle}}
+            </div>    
+            <div class='col-md-3'>
+                    <button class='btn btn-primary'
+                    style='width:180px'>
+              <i class='fa'></i>Add Configuration 
+            </button>
+        </div>    
+        </div>    
     </div>
-    <div class='card-body'>
+    <!-- <div class='card-body'>
         <div class='row'>
             <div class='col-md-2'>Filter by Case Name:</div>
             <div class='col-md-4'>
@@ -11,38 +21,38 @@
             </div>
         </div>
         <div class='row'>
-            <!-- <div class='col-md-6'>
+             <div class='col-md-6'>
                 <h4>Filtered by: {{listFilter}}</h4>
-            </div> -->
+            </div>
         </div>
-    </div>
+    </div> -->
     <div class='table-responsive'>
         <table class='table'
                *ngIf='products && products.length'>
             <thead>
                 <tr>
-                    <th>
+                    <!-- <th>
                         <button class='btn btn-primary'
                                 (click)='toggleImage()'>
                             {{showImage ? 'Hide' : 'Show'}} Image
                         </button>
-                    </th>
+                    </th> -->
                     <th>Subscriber Name</th>
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Status</th>
-                    <th>5 Star Rating</th>
+                    <!-- <th>5 Star Rating</th> -->
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor='let product of filteredProducts'>
-                    <td>
+                    <!-- <td>
                         <img *ngIf='showImage'
                              [src]='product.imageUrl'
                              [title]='product.productName'
                              [style.width.px]='imageWidth'
                              [style.margin.px]='imageMargin'>
-                    </td>
+                    </td> -->
                     <td>
                         <a [routerLink]="['/products', product.productId]">
                             {{ product.productName }}
@@ -50,8 +60,8 @@
                     <td>{{ product.productCode }}</td>
                     <td>{{ product.releaseDate }}</td>
                     <td>{{ product.price }}</td>
-                    <td><pm-star [rating]='product.starRating'
-                                 (ratingClicked)='onRatingClicked($event)'  ></pm-star></td>
+                    <!-- <td><pm-star [rating]='product.starRating'
+                                 (ratingClicked)='onRatingClicked($event)'  ></pm-star></td> -->
                 </tr>
             </tbody>
         </table>
