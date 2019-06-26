@@ -1,0 +1,42 @@
+[
+  {
+    "productId": 1,
+    "productName": "Schools First",
+    "productCode": "January 1, 2017",
+    "releaseDate": "N/A",
+    "description": "Leaf rake with 48-inch wooden handle.",
+    "price": "Active",
+    "starRating": 3.2,
+    "imageUrl": "https://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
+  },
+  {
+    "productId": 2,
+    "productName": "CBSI",
+    "productCode": "January 1, 2017",
+    "releaseDate": "N/A",
+    "description": "15 gallon capacity rolling garden cart",
+    "price":  "Active",
+    "starRating": 4.2,
+    "imageUrl": "https://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
+  },
+  {
+    "productId": 5,
+    "productName": "Randolph Brooks",
+    "productCode": "May 21, 2019",
+    "releaseDate": "N/A",
+    "description": "Curved claw steel hammer",
+    "price": "Active",
+    "starRating": 4.8,
+    "imageUrl": "https://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
+  },
+  {
+    "productId": 8,
+    "productName": "Suncoast",
+    "productCode": "January 16, 2018",
+    "releaseDate": "N/A",
+    "description": "15-inch steel blade hand saw",
+    "price":  "Active",
+    "starRating": 3.7,
+    "imageUrl": "https://openclipart.org/image/300px/svg_to_png/27070/egore911_saw.png"
+  }
+]
