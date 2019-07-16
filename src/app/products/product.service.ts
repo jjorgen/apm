@@ -8,7 +8,8 @@ import { catchError, tap} from "rxjs/operators";
   providedIn: 'root'
 })
 export class ProductService {
-  private productUrl = 'api/products/products.json';
+  // private productUrl = 'api/products/products.json';
+  private productUrl = 'http://localhost:8282/rp-keynote-web-services/service/docuSignConfiguration';
 
   constructor(private http: HttpClient) {}
 
