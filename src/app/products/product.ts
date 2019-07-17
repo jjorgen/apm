@@ -8,10 +8,16 @@ export interface IProduct {
     starRating: number;
     imageUrl: string;
 
+    seqId: string;
     subscriptionName: string;
     subscriptionBeginDate: string;
     subscriptionEndDate: string;
     subscriptionStatus: string;
+    fileTransferMethod: string;
+    fileTransferId: string;
+    fileTransferDirectory: string;
+    fileSubscriptionCases: string;
+    docuSignSubscriptionFiles: string;
 
     cases: string;
 

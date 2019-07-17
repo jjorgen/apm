@@ -5,7 +5,7 @@
               {{pageTitle}}
             </div>    
             <div class='col-md-3'>
-                    <button class='btn btn-primary'
+                    <button class='btn btn-primary' (click)='showList()'
                     style='width:180px'>
               <i class='fa'></i>Add Configuration 
             </button>
@@ -28,7 +28,7 @@
     </div> -->
     <div class='table-responsive'>
         <table class='table'
-               *ngIf='products && products.length'>
+               *ngIf='productService.docusignConfigurations && productService.docusignConfigurations.length'>
             <thead>
                 <tr>
                     <!-- <th>
@@ -45,7 +45,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor='let product of filteredProducts'>
+                <tr *ngFor='let docusignConfiguration of productService.docusignConfigurations'>
                     <!-- <td>
                         <img *ngIf='showImage'
                              [src]='product.imageUrl'
@@ -53,13 +53,17 @@
                              [style.width.px]='imageWidth'
                              [style.margin.px]='imageMargin'>
                     </td> -->
-                    <td>
-                        <a [routerLink]="['/products', product.productId]">
-                            {{ product.productName }}
-                        </a> 
-                    <td>{{ product.productCode }}</td>
-                    <td>{{ product.releaseDate }}</td>
-                    <td>{{ product.price }}</td>
+
+
+                    <td>{{ docusignConfiguration.subscriptionName }}
+                          
+                        <!-- <a [routerLink]="['/products', docusignConfiguration.seqId]">
+                            1: {{ docusignConfiguration.subscriptionName }}
+                        </a>  -->
+                    </td>    
+                    <td>{{ docusignConfiguration.subscriptionBeginDate }}</td>
+                    <td>{{ docusignConfiguration.subscriptionEndDate }}</td>
+                    <td>{{ docusignConfiguration.subscriptionStatus }}</td>
                     <!-- <td><pm-star [rating]='product.starRating'
                                  (ratingClicked)='onRatingClicked($event)'  ></pm-star></td> -->
                 </tr>

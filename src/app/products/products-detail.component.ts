@@ -26,10 +26,17 @@ export class ProductsDetailComponent implements OnInit {
       'starRating': 3.2,
       'imageUrl': 'https://openclipart.org/image/300px/svg_to_png/2615/Anonymous_leaf_Rake.png',
 
+      'seqId': '',
       'subscriptionName': 'Schools First',
       'subscriptionBeginDate': 'Jan 1, 2017',
       'subscriptionEndDate': 'N/A',
       'subscriptionStatus': 'Active',
+      'fileTransferMethod': '',
+      'fileTransferId': '',
+      'fileTransferDirectory': '',
+      'fileSubscriptionCases': '',
+      'docuSignSubscriptionFiles': '',
+    
 
       'cases': 'SCHOOLSFIRST FEDERAL',
 
