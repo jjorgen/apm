@@ -5,38 +5,18 @@
               {{pageTitle}}
             </div>    
             <div class='col-md-3'>
-                    <button class='btn btn-primary' (click)='showList()'
+                    <button class='btn btn-secondary' (click)='addConfiguration()'
                     style='width:180px'>
               <i class='fa'></i>Add Configuration 
             </button>
         </div>    
         </div>    
     </div>
-    <!-- <div class='card-body'>
-        <div class='row'>
-            <div class='col-md-2'>Filter by Case Name:</div>
-            <div class='col-md-4'>
-                <input type='text'
-                       [(ngModel)]='listFilter' />
-            </div>
-        </div>
-        <div class='row'>
-             <div class='col-md-6'>
-                <h4>Filtered by: {{listFilter}}</h4>
-            </div>
-        </div>
-    </div> -->
     <div class='table-responsive'>
         <table class='table'
-               *ngIf='productService.docusignConfigurations && productService.docusignConfigurations.length'>
+               *ngIf='docusignConfigurations && docusignConfigurations.length'>
             <thead>
                 <tr>
-                    <!-- <th>
-                        <button class='btn btn-primary'
-                                (click)='toggleImage()'>
-                            {{showImage ? 'Hide' : 'Show'}} Image
-                        </button>
-                    </th> -->
                     <th>Subscriber Name</th>
                     <th>Start Date</th>
                     <th>End Date</th>
@@ -45,27 +25,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor='let docusignConfiguration of productService.docusignConfigurations'>
-                    <!-- <td>
-                        <img *ngIf='showImage'
-                             [src]='product.imageUrl'
-                             [title]='product.productName'
-                             [style.width.px]='imageWidth'
-                             [style.margin.px]='imageMargin'>
-                    </td> -->
-
-
-                    <td>{{ docusignConfiguration.subscriptionName }}
-                          
+                <tr *ngFor='let docusignConfiguration of docusignConfigurations'>
+                    <td>
+                        <a [routerLink]="['/viewConfiguration', docusignConfiguration.seqId]">
+                            {{ docusignConfiguration.subscriptionName }}
+                        </a>
                         <!-- <a [routerLink]="['/products', docusignConfiguration.seqId]">
-                            1: {{ docusignConfiguration.subscriptionName }}
+                            {{ docusignConfiguration.subscriptionName }}
                         </a>  -->
                     </td>    
                     <td>{{ docusignConfiguration.subscriptionBeginDate }}</td>
                     <td>{{ docusignConfiguration.subscriptionEndDate }}</td>
                     <td>{{ docusignConfiguration.subscriptionStatus }}</td>
-                    <!-- <td><pm-star [rating]='product.starRating'
-                                 (ratingClicked)='onRatingClicked($event)'  ></pm-star></td> -->
                 </tr>
             </tbody>
         </table>
