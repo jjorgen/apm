@@ -16,29 +16,19 @@ export class ProductService {
 
   constructor(private http : HttpClient) {}
 
-  getProducts(): void {
-    this.http.get(this.productUrl)
-    .toPromise().then(res => this.docusignConfigurations = res as IDocusignConfiguration[]);
-    console.log("result: " + this.docusignConfigurations);
-
-    // if (this.docusignConfigurations && this.docusignConfigurations.length > 0) {
-    if (this.docusignConfigurations) {
-      for (let i = 0; i < this.docusignConfigurations.length; i++) { 
-        console.log("Subscription Name: " + this.docusignConfigurations[i].subscriptionName);
-      }
-    }
-
-    // return this.http.get<IProduct[]>(this.productUrl).pipe(
-    //   tap(data => console.log('All: ' + JSON.stringify(data))),
-    //   catchError(this.handleError)
-    // );
+  getProducts(): Observable<IDocusignConfiguration[]> {
+    return this.http.get<IDocusignConfiguration[]>(this.productUrl).pipe(
+      tap(data => (JSON.stringify(data))),
+      catchError(this.handleError)
+    );
   }
-  // getProducts(): Observable<IProduct[]> {
-  //   return this.http.get<IProduct[]>(this.productUrl).pipe(
-  //     tap(data => console.log('All: ' + JSON.stringify(data))),
-  //     catchError(this.handleError)
-  //   );
-  // }
+
+  getConfiguration(id): Observable<IDocusignConfiguration> {
+    return this.http.get<IDocusignConfiguration>(this.productUrl + '/' + id).pipe(
+      tap(data => (JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
 
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
@@ -50,4 +40,5 @@ export class ProductService {
     console.error(errorMessage);
     return throwError(errorMessage);
   }
+  
 }

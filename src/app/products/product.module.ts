@@ -14,8 +14,8 @@ import { ProductsAddComponent } from './products-add.component';
       { path: 'products/:id', 
         canActivate: [ ProductDetailGuard],
         component: ProductsDetailComponent },
-      { path: 'productAdd/:id', 
-        component: ProductsAddComponent },
+      { path: 'productAdd', component: ProductsAddComponent },
+      { path: 'viewConfiguration/:id', component: ProductsDetailComponent }
     ]),
     SharedModule
   ],

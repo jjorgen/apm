@@ -1,21 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import {IProduct} from './product';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProductService } from "./product.service";
+import { IDocusignConfiguration } from './docusignConfiguration';
 
 @Component({
   templateUrl: './products-detail.component.html',
   styleUrls: ['./products-detail.component.css']
 })
 export class ProductsDetailComponent implements OnInit {
-  pageTitle: string = 'DocuSign Configuration Detail';
+  pageTitle: string = 'DocuSign configuration detail for';
   product: IProduct;
+  docusignConfiguration: IDocusignConfiguration;
+  errorMessage: string;
 
   constructor(private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private productService: ProductService) { }
 
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');  // Plus converts nummeric id to string.
-    this.pageTitle +=`: ${id}`;
+
+    this.productService.getConfiguration(id).subscribe(
+      docusignConfiguration => {
+        this.docusignConfiguration = docusignConfiguration;
+        console.log(docusignConfiguration);
+      },
+      error => this.errorMessage = <any>error  // casting operator
+    ); 
+
+    // this.pageTitle +=`: ${id}`;
+
+
     this.product = {
       'productId': id,
       'productName': 'Schools First',

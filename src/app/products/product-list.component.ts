@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { IProduct } from "./product";
 import { IDocusignConfiguration } from "./docusignConfiguration";
 import { ProductService } from "./product.service";
+import { Router } from '@angular/router';
 
 @Component ({
     templateUrl: './product-list.component.html',
@@ -29,7 +30,7 @@ export class ProductListComponent implements OnInit {
   products: IProduct[] = [];
   docusignConfigurations: IDocusignConfiguration[] = [];
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private router: Router) {
   }
 
   onRatingClicked(message: string): void {
@@ -47,37 +48,17 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productService.getProducts();
-    console.log('before loading products');
-    console.log(this.productService.docusignConfigurations);
-    
-    // console.log(this.productService.docusignConfigurations[0].subscriberName);
-
-    console.log('after loading products');
-    // console.log("Before displaying configurations");
-    // console.log(this.productService.list);
-    // this.products = this.productService.list;
+    this.productService.getProducts().subscribe(
+      docusignConfigurations => {
+        this.docusignConfigurations = docusignConfigurations;
+      },
+      error => this.errorMessage = <any>error  // casting operator
+    ); 
   }
 
-  //   console.log('In OnInit');
-  //   this.productService.getProducts().subscribe(
-  //     products => {
-  //       this.products = products;
-  //       this.filteredProducts = this.products;
-  //     },
-  //     error => this.errorMessage = <any>error  // casting operator
-  //   ); 
-  // }
-
-  showList() : void {
-    console.log('In showList');
-    // this.productService.getProducts().subscribe(
-    //   products => {
-    //     this.products = products;
-    //     this.filteredProducts = this.products;
-    //   },
-    //   error => this.errorMessage = <any>error  // casting operator
-    // ); 
+  addConfiguration() : void {
+    console.log("Add Configuration");
+    this.router.navigate(['/productAdd']); 
   }
 
 }
