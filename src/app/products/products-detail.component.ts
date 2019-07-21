@@ -9,10 +9,11 @@ import { IDocusignConfiguration } from './docusignConfiguration';
   styleUrls: ['./products-detail.component.css']
 })
 export class ProductsDetailComponent implements OnInit {
-  pageTitle: string = 'DocuSign configuration detail for';
+  pageTitle: string = 'View configuration detail for';
   product: IProduct;
   docusignConfiguration: IDocusignConfiguration;
   errorMessage: string;
+  id: number;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -20,6 +21,7 @@ export class ProductsDetailComponent implements OnInit {
 
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');  // Plus converts nummeric id to string.
+    this.id = id;
 
     this.productService.getConfiguration(id).subscribe(
       docusignConfiguration => {
@@ -87,4 +89,13 @@ export class ProductsDetailComponent implements OnInit {
   onBack(): void {
     this.router.navigate(['/products']); 
   }
+  
+  editConfiguration() : void {
+    console.log("Edit Configuration");
+    let editUrl: string;
+    // editUrl = '/products/editProduct' + '/' + this.id;
+    editUrl = 'editProduct/' + this.id;
+    this.router.navigate([editUrl]); 
+  }
+
 }

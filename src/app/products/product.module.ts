@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ProductDetailGuard } from './product-detail.guard';
 import { SharedModule } from '../shared/shared.module';
 import { ProductsAddComponent } from './products-add.component';
+import { ProductsEditComponent } from './products-edit/products-edit.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ProductsAddComponent } from './products-add.component';
         canActivate: [ ProductDetailGuard],
         component: ProductsDetailComponent },
       { path: 'productAdd', component: ProductsAddComponent },
-      { path: 'viewConfiguration/:id', component: ProductsDetailComponent }
+      { path: 'viewConfiguration/:id', component: ProductsDetailComponent },
+      { path: 'editProduct/:id', component: ProductsEditComponent }
     ]),
     SharedModule
   ],
@@ -24,6 +26,7 @@ import { ProductsAddComponent } from './products-add.component';
     ProductsDetailComponent,
     ConvertToSpacesPipe,
     ProductsAddComponent,
+    ProductsEditComponent,
   ]
 })
 export class ProductModule { }
