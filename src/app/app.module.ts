@@ -9,6 +9,7 @@ import { ProductDetailGuard } from './products/product-detail.guard';
 import { ProductModule } from './products/product.module';
 import { ProductsAddComponent } from './products/products-add.component';
 import { ProductsDetailComponent } from './products/products-detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ProductsDetailComponent } from './products/products-detail.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },

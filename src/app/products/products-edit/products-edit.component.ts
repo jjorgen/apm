@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from "../product.service";
 import { IDocusignConfiguration } from '../docusignConfiguration';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'pm-products-edit',
@@ -10,7 +11,7 @@ import { IDocusignConfiguration } from '../docusignConfiguration';
 })
 export class ProductsEditComponent implements OnInit {
   pageTitle: string = 'Edit configuration detail for';
-  docusignConfiguration: IDocusignConfiguration;
+  formData: IDocusignConfiguration;
   errorMessage: string;
   id: number;
 
@@ -19,12 +20,19 @@ export class ProductsEditComponent implements OnInit {
     private productService: ProductService) { }
 
   ngOnInit() {
+      this.resetForm();
+  }
+
+  resetForm(form?: NgForm) {
+    if (form != null) 
+      form.resetForm();
+
       let id = +this.route.snapshot.paramMap.get('id');  // Plus converts nummeric id to string.
       this.id = id;
-  
+
       this.productService.getConfiguration(id).subscribe(
         docusignConfiguration => {
-          this.docusignConfiguration = docusignConfiguration;
+          this.formData = docusignConfiguration;
           console.log(docusignConfiguration);
         },
         error => this.errorMessage = <any>error  // casting operator
