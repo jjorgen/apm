@@ -41,12 +41,9 @@
     </div>
 
     <div class='card-footer'>
-      <div class="form-group">
-          <button class='btn btn-outline-secondary' (click)='onBack()' style='width:80px'>
-              <i class='fa fa-chevron-left'></i> Back
-            </button>&nbsp;
-        
-        <button type="submit" [disabled]="form.invalid" class="btn btn-primary" style='width:100px'>SUBMIT</button>
+      <div class="form-group align-items-center" style="margin-top: 5pt; margin-bottom: 5pt">
+        <button class='btn btn-outline-secondary' (click)='onBack()' style='width:80px'><i class='fa fa-chevron-left'></i> Back</button>&nbsp;
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary" style='width:100px'>Submit</button>
       </div>
     </div>
   </form>
