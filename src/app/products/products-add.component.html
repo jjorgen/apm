@@ -22,11 +22,33 @@
           <input name="subscriptionEndDate" #subscriptionEndDate="ngModel" [(ngModel)]="formData.subscriptionEndDate" class="form-control">
         </div>
       </div>
-      <div class="form-group">
-        <label>Status</label>
-        <input name="subscriptionStatus" #subscriptionStatus="ngModel" [(ngModel)]="formData.subscriptionStatus" class="form-control" required>
-        <div class="validation-error" *ngIf="subscriptionStatus.invalid && subscriptionStatus.touched">This field is required.</div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>File Transfer Method</label>
+          <input name="fileTransferMethod" #fileTransferMethod="ngModel" [(ngModel)]="formData.fileTransferMethod" class="form-control" required>
+          <div class="validation-error" *ngIf="fileTransferMethod.invalid && fileTransferMethod.touched">This field is required.</div>
+        </div>
+        <div class="form-group  col-md-6">
+          <label>File Transfer Id</label>
+          <input name="fileTransferId" #fileTransferId="ngModel" [(ngModel)]="formData.fileTransferId" class="form-control" required>
+          <div class="validation-error" *ngIf="fileTransferId.invalid && fileTransferId.touched">This field is required.</div>
+        </div>
       </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>File Transfer Directory</label>
+          <input name="fileTransferDirectory" #fileTransferDirectory="ngModel" [(ngModel)]="formData.fileTransferDirectory" class="form-control" required>
+          <div class="validation-error" *ngIf="fileTransferDirectory.invalid && fileTransferDirectory.touched">This field is required.</div>
+        </div>
+        <div class="form-group  col-md-6">
+          <label>Status</label>
+          <input name="subscriptionStatus" #subscriptionStatus="ngModel" [(ngModel)]="formData.subscriptionStatus" class="form-control" required>
+          <div class="validation-error" *ngIf="subscriptionStatus.invalid && subscriptionStatus.touched">This field is required.</div>
+        </div>
+      </div>
+  
     </div>
 
     <div class='card-footer'>

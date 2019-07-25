@@ -9,5 +9,4 @@ export interface IDocusignConfiguration {
     subscriptionEndDate: String;
     subscriptionName: String;
     subscriptionStatus: String;
-
 }

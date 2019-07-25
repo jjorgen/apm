@@ -30,6 +30,26 @@ export class ProductService {
     );
   }
 
+  postConfiguration(formData: IDocusignConfiguration) {
+    return this.http.post<IDocusignConfiguration>(this.productUrl + '/' + formData.seqId, formData, {headers: 
+      {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}).pipe(
+      tap(data => (JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  putConfiguration(formData: IDocusignConfiguration) {
+    return this.http.put<IDocusignConfiguration>(this.productUrl + '/' + formData.seqId, formData, {headers: 
+      {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}).pipe(
+      tap(data => (JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  deleteConfiguration(seqId: String) {
+    return this.http.delete(this.productUrl + '/' + seqId);
+  }
+  
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
@@ -41,15 +61,4 @@ export class ProductService {
     return throwError(errorMessage);
   }
 
-  postConfiguration(formData: IDocusignConfiguration) {
-    return this.http.put<IDocusignConfiguration>(this.productUrl + '/' + formData.seqId, formData, {headers: 
-      {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}).pipe(
-      tap(data => (JSON.stringify(data))),
-      catchError(this.handleError)
-    );
-  }
-
-  deleteConfiguration(seqId: String) {
-    return this.http.delete(this.productUrl + '/' + seqId);
-  }
 }
