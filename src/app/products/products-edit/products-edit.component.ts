@@ -48,7 +48,7 @@ export class ProductsEditComponent implements OnInit {
   }
 
   updateConfiguration(form: NgForm) {
-    this.productService.postConfiguration(form.value).subscribe(res => {
+    this.productService.putConfiguration(form.value).subscribe(res => {
       this.resetForm(form);
     });
   }

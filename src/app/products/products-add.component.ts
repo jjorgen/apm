@@ -44,6 +44,16 @@ export class ProductsAddComponent implements OnInit {
       this.formData = this.docusignConfiguration;
   }
 
+  onSubmit(form: NgForm) {
+    this.addConfiguration(form);
+  }
+
+  addConfiguration(form: NgForm) {
+    this.productService.postConfiguration(form.value).subscribe(res => {
+      this.resetForm(form);
+    });
+  }
+
   onBack(): void {
     this.router.navigate(['/products']); 
   }
