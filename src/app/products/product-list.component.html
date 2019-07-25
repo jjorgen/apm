@@ -21,7 +21,7 @@
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Status</th>
-                    <!-- <th>5 Star Rating</th> -->
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +37,7 @@
                     <td>{{ docusignConfiguration.subscriptionBeginDate }}</td>
                     <td>{{ docusignConfiguration.subscriptionEndDate }}</td>
                     <td>{{ docusignConfiguration.subscriptionStatus }}</td>
+                    <td style="padding-left: 20px;"><button (click)="onDelete(docusignConfiguration.seqId)" class="btn btn-sm btn-outline-danger">X</button></td>
                 </tr>
             </tbody>
         </table>

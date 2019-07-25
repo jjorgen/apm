@@ -1,27 +1,88 @@
-<div class='card' *ngIf='docusignConfiguration'>
+<div class='card' *ngIf='formData'>
   <div class='card-header'>
-    <!-- {{pageTitle + ': ' + product.productName}} -->
+    {{pageTitle}} <strong> {{formData.subscriptionName}} </strong>
   </div>
-</div>
-<div class='card-body'  *ngIf='docusignConfiguration'>
-    <div class='row'>
-      <div class='col-md-12'>
-        <div class='row'>
-          <div class='col-md-4'>Name: <span class='font-weight-bold ml-1'>{{product.subscriptionName}}</span></div>
-          <div class='col-md-3'>Begin: <span class='font-weight-bold ml-1'>{{product.subscriptionBeginDate}}</span></div>
-          <div class='col-md-3'>End: <span class='font-weight-bold ml-1'>{{product.subscriptionEndDate}}</span></div>
-          <div class='col-md-2'>Status: <span class='font-weight-bold ml-1'>{{product.subscriptionStatus}}</span></div>
+
+  <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <div class='card-body'>
+      <input type="hidden" name="seqId" #seqId="ngModel" [(ngModel)]="formData.seqId">
+      <div class="form-group">
+        <label>Name</label>
+        <input name="subscriptionName" #subscriptionName="ngModel" [(ngModel)]="formData.subscriptionName" class="form-control" required>
+        <div class="validation-error" *ngIf="subscriptionName.invalid && subscriptionName.touched">This field is required.</div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Begin Date</label>
+          <input name="subscriptionBeginDate" #subscriptionBeginDate="ngModel" [(ngModel)]="formData.subscriptionBeginDate" class="form-control" required>
+          <div class="validation-error" *ngIf="subscriptionBeginDate.invalid && subscriptionBeginDate.touched">This field is required.</div>
+        </div>
+        <div class="form-group  col-md-6">
+          <label>End Date</label>
+          <input name="subscriptionEndDate" #subscriptionEndDate="ngModel" [(ngModel)]="formData.subscriptionEndDate" class="form-control">
         </div>
       </div>
+      <div class="form-group">
+        <label>Status</label>
+        <input name="subscriptionStatus" #subscriptionStatus="ngModel" [(ngModel)]="formData.subscriptionStatus" class="form-control" required>
+        <div class="validation-error" *ngIf="subscriptionStatus.invalid && subscriptionStatus.touched">This field is required.</div>
+      </div>
     </div>
+
+    <div class='card-footer'>
+      <div class="form-group align-items-center" style="margin-top: 5pt; margin-bottom: 5pt">
+        <button class='btn btn-outline-secondary' (click)='onBack()' style='width:80px'><i class='fa fa-chevron-left'></i> Back</button>&nbsp;
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary" style='width:100px'>Save</button>
+      </div>
+    </div>
+  </form>
 </div>
 
-<div class='card-footer'>
-  <button class='btn btn-outline-secondary'
-          (click)='onBack()'
-          style='width:80px'>
-    <i class='fa fa-chevron-left'></i> Back 
-  </button>
-</div>
+
+
+
+
+
+
+
+
+
+<!-- <form>
+    <div class='card' *ngIf='docusignConfiguration'>
+        <div class='card-header'>
+          {{pageTitle + ': ' + docusignConfiguration.subscriptionName}}
+        </div>
+        <div class='card-body'>
+            <div class='row'>
+                <div class='col-md-12'>
+                  <div class='row'>
+                    <div class='col-md-4'>Name: <span class='font-weight-bold ml-1'>{{docusignConfiguration.subscriptionName}}</span></div>
+                    <div class='col-md-3'>Begin: <span class='font-weight-bold ml-1'>{{docusignConfiguration.subscriptionBeginDate}}</span></div>
+                    <div class='col-md-3'>End: <span class='font-weight-bold ml-1'>{{docusignConfiguration.subscriptionEndDate}}</span></div>
+                    <div class='col-md-2'>Status: <span class='font-weight-bold ml-1'>{{docusignConfiguration.subscriptionStatus}}</span></div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class='card-footer'>
+            <button class='btn btn-outline-secondary'
+            (click)='onBack()'
+            style='width:80px'>
+            <i class='fa fa-chevron-left'></i> Back 
+            </button>&nbsp;
+          </div>
+    </div>
+      
+
+</form> -->
+
+
+
+<!-- <div class='form-group row'>
+    <label for='name-input' >
+  products-edit works!
+  </div> -->
+
+
     
 
