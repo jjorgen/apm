@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {IProduct} from './product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from "./product.service";
 import { IDocusignConfiguration } from './docusignConfiguration';
@@ -10,7 +9,6 @@ import { IDocusignConfiguration } from './docusignConfiguration';
 })
 export class ProductsDetailComponent implements OnInit {
   pageTitle: string = 'View Configuration for';
-  product: IProduct;
   docusignConfiguration: IDocusignConfiguration;
   errorMessage: string;
   id: number;
