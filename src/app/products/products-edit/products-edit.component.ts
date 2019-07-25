@@ -10,14 +10,17 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./products-edit.component.css']
 })
 export class ProductsEditComponent implements OnInit {
-  pageTitle: string = 'Edit configuration detail for';
+  pageTitle: string = 'Edit Configuration for';
+
   formData: IDocusignConfiguration;
+
   errorMessage: string;
   id: number;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService) { }
+
 
   ngOnInit() {
       this.resetForm();
@@ -33,10 +36,21 @@ export class ProductsEditComponent implements OnInit {
       this.productService.getConfiguration(id).subscribe(
         docusignConfiguration => {
           this.formData = docusignConfiguration;
+          docusignConfiguration.seqId=''+this.id;
           console.log(docusignConfiguration);
         },
         error => this.errorMessage = <any>error  // casting operator
       ); 
+  }
+
+  onSubmit(form: NgForm) {
+    this.updateConfiguration(form);
+  }
+
+  updateConfiguration(form: NgForm) {
+    this.productService.postConfiguration(form.value).subscribe(res => {
+      this.resetForm(form);
+    });
   }
 
   onBack(): void {

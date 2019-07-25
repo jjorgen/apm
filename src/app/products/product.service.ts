@@ -40,5 +40,16 @@ export class ProductService {
     console.error(errorMessage);
     return throwError(errorMessage);
   }
-  
+
+  postConfiguration(formData: IDocusignConfiguration) {
+    return this.http.put<IDocusignConfiguration>(this.productUrl + '/' + formData.seqId, formData, {headers: 
+      {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}).pipe(
+      tap(data => (JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  deleteConfiguration(seqId: String) {
+    return this.http.delete(this.productUrl + '/' + seqId);
+  }
 }

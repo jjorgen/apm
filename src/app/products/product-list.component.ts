@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  pageTitle: string = 'Existing DocuSign Configurations';
+  pageTitle: string = 'Existing Configurations';
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = false;
@@ -33,6 +33,19 @@ export class ProductListComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router) {
   }
 
+  ngOnInit(): void {
+    this.loadConfigurations();
+  }
+
+  loadConfigurations() {
+    this.productService.getProducts().subscribe(
+      docusignConfigurations => {
+        this.docusignConfigurations = docusignConfigurations;
+      },
+      error => this.errorMessage = <any>error  // casting operator
+    ); 
+  }
+
   onRatingClicked(message: string): void {
     this.pageTitle = 'Product List: ' + message; 
   } 
@@ -47,18 +60,17 @@ export class ProductListComponent implements OnInit {
     this.showImage = !this.showImage;
   }
 
-  ngOnInit(): void {
-    this.productService.getProducts().subscribe(
-      docusignConfigurations => {
-        this.docusignConfigurations = docusignConfigurations;
-      },
-      error => this.errorMessage = <any>error  // casting operator
-    ); 
-  }
-
   addConfiguration() : void {
     console.log("Add Configuration");
     this.router.navigate(['/productAdd']); 
+  }
+
+  onDelete(seqId: String) : void {
+    if (confirm('Are you sure to delete this record?')) {
+      this.productService.deleteConfiguration(seqId).subscribe(res => {
+        this.loadConfigurations()
+      });
+    }
   }
 
 }
