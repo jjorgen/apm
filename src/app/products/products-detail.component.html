@@ -19,7 +19,7 @@
     </div>
     <div style="padding-left: 6px; padding-right: 5px;" *ngIf='docusignConfiguration.docuSignSubscriptionFiles'>
 
-      <div class="form-row border border-secondary" style="padding-right: 10px;" *ngFor='let docuSignSubscriptionFile of docusignConfiguration.docuSignSubscriptionFiles'>
+      <div class="form-row border border-green" style="padding-right: 10px;" *ngFor='let docuSignSubscriptionFile of docusignConfiguration.docuSignSubscriptionFiles'>
         <div class="col-md-6"><label style="padding-right: 10px;">File Type:</label><strong>{{docuSignSubscriptionFile.fileType}}</strong></div>
         <div class="col-md-6"><label style="padding-right: 10px;">File Name Prefix:</label><strong>{{docuSignSubscriptionFile.fileNamePrefix}}</strong></div>
   

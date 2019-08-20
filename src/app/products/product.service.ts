@@ -39,6 +39,13 @@ export class ProductService {
   }
 
   putConfiguration(formData: IDocusignConfiguration) {
+    if (formData.subscriptionStatus == 'Active') {
+      formData.subscriptionStatus = 'A';
+    } else if (formData.subscriptionStatus == 'Terminated') { 
+      formData.subscriptionStatus = 'T';
+    } else if (formData.subscriptionStatus == 'Hold') { 
+      formData.subscriptionStatus = 'H';
+    }  
     return this.http.put<IDocusignConfiguration>(this.productUrl + '/' + formData.seqId, formData, {headers: 
       {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}).pipe(
       tap(data => (JSON.stringify(data))),
