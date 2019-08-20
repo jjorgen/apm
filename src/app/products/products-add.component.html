@@ -42,11 +42,25 @@
           <input name="fileTransferDirectory" #fileTransferDirectory="ngModel" [(ngModel)]="formData.fileTransferDirectory" class="form-control" required>
           <div class="validation-error" *ngIf="fileTransferDirectory.invalid && fileTransferDirectory.touched">This field is required.</div>
         </div>
-        <div class="form-group  col-md-6">
+
+        <div class="form-group col-md-2 custom-control custom-radio">
+          <label style="padding-left: 60px;">Active</label>
+          <input id="Active" value="Active" name="subscriptionStatus" type="radio" #subscriptionStatus="ngModel" [(ngModel)]="formData.subscriptionStatus" class="form-control" required>
+        </div>        
+        <div class="form-group col-md-2 custom-control custom-radio">
+          <label style="padding-left: 50px;">Terminated</label>
+          <input id="Terminated" value="Terminated" name="subscriptionStatus" type="radio" #subscriptionStatus="ngModel" [(ngModel)]="formData.subscriptionStatus" class="form-control" required>
+        </div>        
+        <div class="form-group col-md-2 custom-control custom-radio">
+          <label style="padding-left: 65px;">Hold</label>
+          <input id="Hold" value="Hold" name="subscriptionStatus" type="radio" #subscriptionStatus="ngModel" [(ngModel)]="formData.subscriptionStatus" class="form-control" required>
+        </div>        
+
+        <!-- <div class="form-group  col-md-6">
           <label>Status</label>
           <input name="subscriptionStatus" #subscriptionStatus="ngModel" [(ngModel)]="formData.subscriptionStatus" class="form-control" required>
           <div class="validation-error" *ngIf="subscriptionStatus.invalid && subscriptionStatus.touched">This field is required.</div>
-        </div>
+        </div> -->
       </div>
   
     </div>

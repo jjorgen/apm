@@ -30,14 +30,6 @@ export class ProductService {
     );
   }
 
-  postConfiguration(formData: IDocusignConfiguration) {
-    return this.http.post<IDocusignConfiguration>(this.productUrl + '/' + formData.seqId, formData, {headers: 
-      {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}).pipe(
-      tap(data => (JSON.stringify(data))),
-      catchError(this.handleError)
-    );
-  }
-
   putConfiguration(formData: IDocusignConfiguration) {
     if (formData.subscriptionStatus == 'Active') {
       formData.subscriptionStatus = 'A';
@@ -47,6 +39,14 @@ export class ProductService {
       formData.subscriptionStatus = 'H';
     }  
     return this.http.put<IDocusignConfiguration>(this.productUrl + '/' + formData.seqId, formData, {headers: 
+      {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}).pipe(
+      tap(data => (JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  postConfiguration(formData: IDocusignConfiguration) {
+    return this.http.post<IDocusignConfiguration>(this.productUrl + '/1', formData, {headers: 
       {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}).pipe(
       tap(data => (JSON.stringify(data))),
       catchError(this.handleError)
