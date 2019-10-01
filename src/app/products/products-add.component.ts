@@ -51,6 +51,7 @@ export class ProductsAddComponent implements OnInit {
   addConfiguration(form: NgForm) {
     this.productService.postConfiguration(form.value).subscribe(res => {
       this.resetForm(form);
+      this.router.navigate(['/products']); 
     });
   }
 
@@ -58,5 +59,3 @@ export class ProductsAddComponent implements OnInit {
     this.router.navigate(['/products']); 
   }
 }
-
-
